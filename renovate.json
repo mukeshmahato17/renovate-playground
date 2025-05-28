@@ -1,20 +1,20 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["config:base"],
-    "dependencyDashboard": true,
-    "vulnerabilityAlerts": {
-      "enabled": true
-    },
-    "assignees": ["mukeshmahato17"],
-    "postUpdateOptions": ["gomodTidy"],
-    "baseBranches": ["main"],
-    "packageRules": [
-      {
-        "matchManagers": ["gomod"],
-        "labels": ["area/security", "dependencies"],
-        "automerge": false,
-        "commitMessageTopic": "{{depName}}",
-        "commitMessageExtra": "to {{newVersion}}"
-      }
-    ]
-  }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "assignAutomerge": true,
+  "assigneesFromCodeOwners": true,
+  "postUpdateOptions": ["gomodTidy"],
+  "baseBranches": ["main"],
+  "packageRules": [
+    {
+      "matchManagers": ["gomod"],
+      "labels": ["area/security", "dependencies"],
+      "automerge": false,
+      "commitMessageTopic": "{{depName}}",
+      "commitMessageExtra": "to {{newVersion}}"
+    }
+  ]
+}
